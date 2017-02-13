@@ -1,4 +1,4 @@
-﻿namespace Turbo.Plugins.Custom
+﻿namespace Turbo.Plugins.LastPlugins
 {
     class Program
     {

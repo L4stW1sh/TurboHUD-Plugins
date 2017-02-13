@@ -1,0 +1,79 @@
+<Project>
+  <Name>WeakBuffs</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>WeakBuffs</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Trigger</Name>
+        <Access>Public</Access>
+        <Location left="41" top="22" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Action</Name>
+        <Access>Public</Access>
+        <Location left="223" top="22" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Animation</Name>
+        <Access>Public</Access>
+        <Location left="409" top="22" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Loader</Name>
+        <Access>Public</Access>
+        <Location left="598" top="22" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IRender</Name>
+        <Access>Public</Access>
+        <Location left="41" top="290" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void Draw()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>Aura</Name>
+        <Access>Public</Access>
+        <Location left="598" top="290" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public List&lt;Trigger&gt; Triggers { get; set; }</Member>
+        <Member type="Property">public Loader Loader { get; set; }</Member>
+        <Member type="Property">public Action Action { get; set; }</Member>
+        <Member type="Property">public IRender Render { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TextRender</Name>
+        <Access>Public</Access>
+        <Location left="288" top="298" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AuraGroup</Name>
+        <Access>Public</Access>
+        <Location left="575" top="592" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Property">public List&lt;Aura&gt; Auras { get; set; }</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+</Project>
