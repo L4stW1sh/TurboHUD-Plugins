@@ -23,12 +23,14 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs
             {
                 Sno = 96090,
                 StacksCount = 5,
-                StackOperator = Types.Operators.Minor
+                StackOperator = Operators.Minor
             };
             var graphic = new TextGraphic(Hud)
             {
                 TextFont = Hud.Render.CreateFont("tahoma", 7.0f, 255, 0, 255, 40, false, false, true),
-                TextFunc = () => "Warning SW < 5 stack"
+                TextFunc = () => "Warning SW < 5 stack",
+                X = 15,
+                Y = 15
             };
 
             var aura = new Aura

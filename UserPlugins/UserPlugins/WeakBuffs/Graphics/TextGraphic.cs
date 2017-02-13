@@ -6,7 +6,6 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs.Graphics
 {
     public class TextGraphic : GraphicBase
     {
-
         public float X { get; set; }
         public float Y { get; set; }
         public IFont TextFont { get; set; }
@@ -16,14 +15,14 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs.Graphics
 
         public TextGraphic(IController hud) : base(hud)
         {
-            
+
         }
 
         public override void Draw()
         {
             if (TextFont == null) return;
 
-           
+
             _decorator = new TopLabelDecorator(Hud)
             {
                 TextFont = TextFont,
@@ -32,8 +31,9 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs.Graphics
 
             var text = TextFunc != null ? TextFunc.Invoke() : null;
             var layout = TextFont.GetTextLayout(text);
-
-            _decorator.Paint(X, Y, layout.Metrics.Width, layout.Metrics.Height, HorizontalAlign.Left);
+            var x = (float)Hud.Window.Size.Width / 2 + X;
+            var y = (float) Hud.Window.Size.Height/2 + Y;
+            _decorator.Paint(x, y, layout.Metrics.Width, layout.Metrics.Height, HorizontalAlign.Left);
 
         }
     }
