@@ -122,9 +122,13 @@
     <Compile Include="WeakBuffs\Graphics\GraphicBase.cs" />
     <Compile Include="WeakBuffs\Graphics\IconGraphic.cs" />
     <Compile Include="WeakBuffs\Graphics\IGraphic.cs" />
+    <Compile Include="WeakBuffs\Graphics\ProgressBarGraphic.cs" />
     <Compile Include="WeakBuffs\Graphics\TextGraphic.cs" />
+    <Compile Include="WeakBuffs\Graphics\TimerGraphic.cs" />
     <Compile Include="WeakBuffs\Loader.cs" />
-    <Compile Include="WeakBuffs\Trigger.cs" />
+    <Compile Include="WeakBuffs\Triggers\BuffTrigger.cs" />
+    <Compile Include="WeakBuffs\Triggers\Trigger.cs" />
+    <Compile Include="WeakBuffs\Triggers\ITrigger.cs" />
     <Compile Include="WeakBuffs\Types.cs" />
     <Compile Include="WeakBuffs\WeakBuffsPlugin.cs" />
   </ItemGroup>

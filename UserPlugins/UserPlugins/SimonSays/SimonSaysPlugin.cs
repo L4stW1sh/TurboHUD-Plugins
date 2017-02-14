@@ -68,7 +68,7 @@ namespace Turbo.Plugins.LastPlugins.SimonSays
             {
                 BackgroundBrush = Hud.Render.CreateBrush(178, 0, 0, 0, 0),
                 BorderBrush = Hud.Render.CreateBrush(255, 0, 0, 0, 2),
-                TextFont = Hud.Render.CreateFont("arial", 7, 224, 240, 240, 64, true, false, false),
+                TextFont = Hud.Render.CreateFont("arial", 7, 224, 240, 240, 64, true, false, false)
             };
 
             Fonts.Add(SimonPun.Error, Hud.Render.CreateFont("arial", 7, 224, 255, 0, 0, true, false, false));

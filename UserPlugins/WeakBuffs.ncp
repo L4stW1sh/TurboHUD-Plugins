@@ -10,6 +10,7 @@
         <Location left="41" top="22" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public bool IsTrigged()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -67,7 +68,7 @@
       <Entity type="Class">
         <Name>AuraGroup</Name>
         <Access>Public</Access>
-        <Location left="575" top="592" />
+        <Location left="811" top="298" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Property">public List&lt;Aura&gt; Auras { get; set; }</Member>

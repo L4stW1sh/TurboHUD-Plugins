@@ -1,7 +1,6 @@
 ﻿using System;
-using Turbo.SNO;
 
-namespace Turbo.Plugins.LastPlugins.WeakBuffs
+namespace Turbo.Plugins.LastPlugins.WeakBuffs.Triggers
 {
     public class Trigger
     {

@@ -9,6 +9,7 @@ namespace Turbo.Plugins.LastPlugins.ShowSno
         public ShowSnoPlugin()
         {
             Enabled = true;
+            
         }
 
         public override void PaintTopInGame(ClipState clipState)

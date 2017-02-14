@@ -11,11 +11,11 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs.Graphics
         public IFont TextFont { get; set; }
         public StringGeneratorFunc TextFunc { get; set; }
 
-        private TopLabelDecorator _decorator;
+        private readonly TopLabelDecorator _decorator;
 
         public TextGraphic(IController hud) : base(hud)
         {
-
+            _decorator = new TopLabelDecorator(Hud);
         }
 
         public override void Draw()
@@ -23,16 +23,16 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs.Graphics
             if (TextFont == null) return;
 
 
-            _decorator = new TopLabelDecorator(Hud)
-            {
-                TextFont = TextFont,
-                TextFunc = TextFunc
-            };
+            _decorator.TextFont = TextFont;
+            _decorator.TextFunc = TextFunc;
 
             var text = TextFunc != null ? TextFunc.Invoke() : null;
             var layout = TextFont.GetTextLayout(text);
             var x = (float)Hud.Window.Size.Width / 2 + X;
-            var y = (float) Hud.Window.Size.Height/2 + Y;
+            var y = (float)Hud.Window.Size.Height / 2 + Y;
+            SimonSays.SimonSays.Debug(string.Format("TextFunc: {0}", TextFunc.Invoke()));
+            SimonSays.SimonSays.Debug(string.Format("X: {0}, Y: {1}, W:{2}, H:{3}", x, x, layout.Metrics.Width,layout.Metrics.Height));
+            
             _decorator.Paint(x, y, layout.Metrics.Width, layout.Metrics.Height, HorizontalAlign.Left);
 
         }

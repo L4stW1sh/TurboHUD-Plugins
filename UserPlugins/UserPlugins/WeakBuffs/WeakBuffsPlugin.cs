@@ -2,6 +2,7 @@
 using System.Linq;
 using Turbo.Plugins.Default;
 using Turbo.Plugins.LastPlugins.WeakBuffs.Graphics;
+using Turbo.Plugins.LastPlugins.WeakBuffs.Triggers;
 
 namespace Turbo.Plugins.LastPlugins.WeakBuffs
 {
@@ -15,91 +16,55 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs
             Auras = new List<Aura>();
             var loader = new Loader
             {
-                Enabled = true,
-                InCombat = true,
-                InTown = false
+                Enabled = true
             };
-            var trigger = new Trigger(Hud)
+
+            var trigger = new BuffTrigger
             {
                 Sno = 96090,
-                StacksCount = 5,
-                StackOperator = Operators.Minor
+                StackCount = 0,
+                StackOperator = Operators.Greater
             };
-            var graphic = new TextGraphic(Hud)
+
+            var textGraphic = new TextGraphic(hud)
             {
-                TextFont = Hud.Render.CreateFont("tahoma", 7.0f, 255, 0, 255, 40, false, false, true),
-                TextFunc = () => "Warning SW < 5 stack",
-                X = 15,
-                Y = 15
+                TextFunc = () => "Sweeping Wind is UP",
+                TextFont = Hud.Render.CreateFont("tahoma", 12.0f, 255, 255, 255, 255, false, false, true),
+                X = 15.0f,
+                Y = 15.0f
             };
 
             var aura = new Aura
             {
-                Graphic = graphic,
-                Loader = loader,
-                Triggers = new List<Trigger>(new[] {trigger})
+                Graphic = textGraphic,
+                Loader = loader
             };
-
-            Auras.Add(aura);
+            aura.Triggers.Add(trigger);
+            Auras.Add(new Aura
+            {
+                Graphic = textGraphic,
+                Loader = loader
+            });
         }
 
         public override void PaintTopInGame(ClipState clipState)
         {
+            if (Hud.Render.UiHidden) return;
             if (clipState != ClipState.BeforeClip) return;
             if (Hud.Game.IsPaused) return;
             if (Auras == null || Auras.Count == 0) return;
 
-            if (Hud.Game.IsInGame && Hud.Game.IsInTown)
+
+            //auras always display
+            var auras = Auras.Where(aura => aura.Triggers.Any(t => t.IsTriggered(Hud)));
+
+            SimonSays.SimonSays.Debug(auras.Count() + " auras");
+            foreach (var aura in auras)
             {
-                var auras = Auras.Where(a => a.Loader.Enabled && a.Loader.InTown);
-                auras.ForEach(aura =>
-                {
-                    var triggered = aura.Triggers.Any(t => t.IsTriggered());
-                    if (triggered)
-                    {
-                        aura.Graphic.Draw();
-                    }
-                });
+                SimonSays.SimonSays.Debug(aura.Graphic.GetType().FullName + " is display");
+                aura.Graphic.Draw();
             }
 
-            if (Hud.Game.IsInGame && !Hud.Game.IsInTown)
-            {
-                var auras = Auras.Where(a => a.Loader.Enabled && !a.Loader.InTown);
-                auras.ForEach(aura =>
-                {
-                    var triggered = aura.Triggers.Any(t => t.IsTriggered());
-                    if (triggered)
-                    {
-                        aura.Graphic.Draw();
-                    }
-                });
-            }
-
-            if (Hud.Game.IsInGame && Hud.Game.Me.InCombat)
-            {
-                var auras = Auras.Where(a => a.Loader.Enabled && a.Loader.InCombat);
-                auras.ForEach(aura =>
-                {
-                    var triggered = aura.Triggers.Any(t => t.IsTriggered());
-                    if (triggered)
-                    {
-                        aura.Graphic.Draw();
-                    }
-                });
-            }
-
-            if (Hud.Game.IsInGame && !Hud.Game.Me.InCombat)
-            {
-                var auras = Auras.Where(a => a.Loader.Enabled && !a.Loader.InCombat);
-                auras.ForEach(aura =>
-                {
-                    var triggered = aura.Triggers.Any(t => t.IsTriggered());
-                    if (triggered)
-                    {
-                        aura.Graphic.Draw();
-                    }
-                });
-            }
         }
     }
 }

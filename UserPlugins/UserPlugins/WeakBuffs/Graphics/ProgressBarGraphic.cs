@@ -1,8 +1,8 @@
 ﻿namespace Turbo.Plugins.LastPlugins.WeakBuffs.Graphics
 {
-    public class IconGraphic : GraphicBase
+    public class ProgressBarGraphic : GraphicBase
     {
-        public IconGraphic(IController hud) : base(hud)
+        public ProgressBarGraphic(IController hud) : base(hud)
         {
         }
 
