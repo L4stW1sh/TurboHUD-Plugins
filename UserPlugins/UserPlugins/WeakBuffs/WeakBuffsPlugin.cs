@@ -56,9 +56,9 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs
 
 
             //auras always display
-            var auras = Auras.Where(aura => aura.Triggers.Any(t => t.IsTriggered(Hud)));
+            var auras = Auras.Where(aura => aura.Triggers.Any(t => t.IsTriggered(Hud))).ToList();
 
-            SimonSays.SimonSays.Debug(auras.Count() + " auras");
+            SimonSays.SimonSays.Debug(auras.Count + " auras");
             foreach (var aura in auras)
             {
                 SimonSays.SimonSays.Debug(aura.Graphic.GetType().FullName + " is display");
