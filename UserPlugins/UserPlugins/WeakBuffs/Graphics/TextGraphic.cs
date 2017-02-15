@@ -30,7 +30,7 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs.Graphics
             var layout = TextFont.GetTextLayout(text);
             var x = (float)Hud.Window.Size.Width / 2 + X;
             var y = (float)Hud.Window.Size.Height / 2 + Y;
-            SimonSays.SimonSays.Debug(string.Format("TextFunc: {0}", TextFunc.Invoke()));
+            SimonSays.SimonSays.Debug(string.Format("TextFunc: {0}", text));
             SimonSays.SimonSays.Debug(string.Format("X: {0}, Y: {1}, W:{2}, H:{3}", x, x, layout.Metrics.Width,layout.Metrics.Height));
             
             _decorator.Paint(x, y, layout.Metrics.Width, layout.Metrics.Height, HorizontalAlign.Left);

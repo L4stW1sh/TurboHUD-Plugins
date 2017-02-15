@@ -40,11 +40,9 @@ namespace Turbo.Plugins.LastPlugins.WeakBuffs
                 Loader = loader
             };
             aura.Triggers.Add(trigger);
-            Auras.Add(new Aura
-            {
-                Graphic = textGraphic,
-                Loader = loader
-            });
+
+
+            Auras.Add(aura);
         }
 
         public override void PaintTopInGame(ClipState clipState)
